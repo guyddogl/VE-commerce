@@ -1,2 +1,2 @@
 # VE-commerce
-Painel de administração para um e-commerce
+Painel de administração de e-commerce
