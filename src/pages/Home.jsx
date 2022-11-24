@@ -9,7 +9,7 @@ export default function Home() {
       <NavBar />
       <section className="container mt-4">
         <ListOfProducts limit={limitOfProducts} />
-        <div className="row mt-3 justify-content-center text-center">
+        <div className="row mt-3 mb-4 justify-content-center text-center">
           <div className="col-10 col-lg-4">
             {limitOfProducts === 8 && (
             <button
