@@ -3,3 +3,13 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.h100 {
+  min-height: 100vh;
+}
+
+@media (max-width: 575.98px) {
+  .h100 {
+    min-height: 0vh;
+  }
+}
