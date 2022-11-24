@@ -21,6 +21,11 @@ body {
   border-bottom: 2px solid #007BFF;
 }
 
+.list-hover:hover {
+  background-color: #F8F9FA;
+}
+
+
 @media (max-width: 575.98px) {
   .h100 {
     min-height: 0vh;
