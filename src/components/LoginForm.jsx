@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AppContext from '../context/AppContext';
 
 export default function LoginForm() {
   const INITIAL_STATE = {
@@ -12,6 +13,8 @@ export default function LoginForm() {
   const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(true);
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const { setIsUserLoggedIn, setCurrentUser } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -32,6 +35,8 @@ export default function LoginForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
+    setCurrentUser(inputsLoginForm.username);
+    setIsUserLoggedIn(true);
     navigate('/');
     setIsLoading(false);
   };
