@@ -5,12 +5,14 @@ import './assets/css/global.css';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<ProtectedRoutes component={Home} />} />
+      <Route path="/products/:id" element={<ProtectedRoutes component={ProductDetails} />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
