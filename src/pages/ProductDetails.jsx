@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 
 export default function ProductDetails() {
   const { id } = useParams();
+
   return (
     <>
       <NavBar />

@@ -4,6 +4,7 @@ import ListOfProducts from '../components/ListOfProducts';
 
 export default function Home() {
   const [limitOfProducts, setLimitOfProducts] = useState(8);
+
   return (
     <>
       <NavBar />

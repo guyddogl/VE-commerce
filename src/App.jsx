@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<ProtectedRoutes component={Home} />} />
-      <Route path="/products/:id" element={<ProtectedRoutes component={ProductDetails} />} />
+      <Route path="/product/:id" element={<ProtectedRoutes component={ProductDetails} />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
