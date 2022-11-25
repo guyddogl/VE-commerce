@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar';
 import ListOfProducts from '../components/ListOfProducts';
 
 export default function Home() {
-  const [limitOfProducts, setLimitOfProducts] = useState(8);
+  const [limitOfProducts, setLimitOfProducts] = useState(7);
 
   return (
     <>
@@ -12,7 +12,7 @@ export default function Home() {
         <ListOfProducts limit={limitOfProducts} />
         <div className="row mt-3 mb-4 justify-content-center text-center">
           <div className="col-10 col-lg-4">
-            {limitOfProducts === 8 && (
+            {limitOfProducts === 7 && (
             <button
               type="button"
               onClick={() => setLimitOfProducts(30)}
@@ -25,7 +25,7 @@ export default function Home() {
             {limitOfProducts === 30 && (
             <button
               type="button"
-              onClick={() => setLimitOfProducts(8)}
+              onClick={() => setLimitOfProducts(7)}
               className="btn btn-sm btn-secondary"
             >
               <i className="fa-solid fa-minus me-2" />
