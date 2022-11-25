@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import ProductDetails from './pages/ProductDetails';
+import ProductEdit from './pages/ProductEdit';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<ProtectedRoutes component={Home} />} />
       <Route path="/product/:id" element={<ProtectedRoutes component={ProductDetails} />} />
+      <Route path="/product/edit/:id" element={<ProtectedRoutes component={ProductEdit} />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
