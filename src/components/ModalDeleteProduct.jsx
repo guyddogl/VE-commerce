@@ -1,20 +1,26 @@
 import React, { useContext } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { deleteProductById } from '../services/fetchApi';
 import showToast from '../services/toastr';
 import AppContext from '../context/AppContext';
 
 export default function ModalDeleteProduct(props) {
-  const { show, product, handleClose } = props;
+  const {
+    show, product, handleClose, redirectToHome,
+  } = props;
 
   const { fetchLoading, setFetchLoading } = useContext(AppContext);
+
+  const navigate = useNavigate();
 
   const deleteProduct = async () => {
     setFetchLoading(true);
     await deleteProductById(product.id).then(() => showToast('success', 'Produto excluído'));
     setFetchLoading(false);
     handleClose();
+    if (redirectToHome === true) navigate('/');
   };
 
   return (
@@ -28,7 +34,7 @@ export default function ModalDeleteProduct(props) {
       <Modal.Header>
         <Modal.Title className="text-danger">
           <i className="fa-solid fa-circle-exclamation me-2" />
-          Confirma a exclusão deste produto?
+          Confirmar exclusão?
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -42,7 +48,7 @@ export default function ModalDeleteProduct(props) {
           </div>
         </div>
         {fetchLoading ? (
-          <div className="d-grid gap-2 d-flex justify-content-md-end mt-3">
+          <div className="d-grid gap-2 d-flex justify-content-end mt-3">
             <button
               type="button"
               className="btn btn-md btn-outline-secondary mx-1 my-3"
@@ -62,7 +68,7 @@ export default function ModalDeleteProduct(props) {
             </button>
           </div>
         ) : (
-          <div className="d-grid gap-2 d-flex justify-content-md-end mt-3">
+          <div className="d-grid gap-2 d-flex justify-content-end mt-3">
             <button
               type="button"
               className="btn btn-md btn-secondary mx-1 my-3"
@@ -91,4 +97,9 @@ ModalDeleteProduct.propTypes = {
   show: PropTypes.bool.isRequired,
   product: PropTypes.number.isRequired,
   handleClose: PropTypes.func.isRequired,
+  redirectToHome: PropTypes.bool,
+};
+
+ModalDeleteProduct.defaultProps = {
+  redirectToHome: false,
 };
