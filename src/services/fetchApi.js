@@ -20,7 +20,21 @@ const getProductById = async (id) => {
   }
 };
 
+const deleteProductById = async (id) => {
+  try {
+    const URL = `https://dummyjson.com/products/${id}`;
+    const result = await fetch(URL, {
+      method: 'DELETE',
+    });
+    const data = await result.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
+  deleteProductById,
 };
