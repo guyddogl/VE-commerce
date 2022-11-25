@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 import NavBar from '../components/NavBar';
 import { getProductById } from '../services/fetchApi';
 import AppContext from '../context/AppContext';
@@ -35,8 +33,6 @@ export default function ProductDetails() {
   const handleShow = () => setShow(true);
 
   const handleClose = () => setShow(false);
-
-  console.log(product);
 
   return (
     <>
@@ -98,36 +94,26 @@ export default function ProductDetails() {
                 {' '}
                 {product.stock}
               </p>
-              <OverlayTrigger
-                placement="top"
-                overlay={(<Tooltip>Editar</Tooltip>)}
+              <button
+                type="button"
+                className={`btn btn-md btn-outline-secondary m-1 ${fetchLoading && 'disabled'}`}
+                style={{ minWidth: '120px' }}
+                onClick={() => editProduct(product.id)}
               >
-                <button
-                  type="button"
-                  className={`btn btn-md btn-outline-secondary m-1 ${fetchLoading && 'disabled'}`}
-                  style={{ minWidth: '45px' }}
-                  onClick={() => editProduct(product.id)}
-                >
-                  <i className="fa-regular fa-pen-to-square" />
-                  {' '}
-                  Editar
-                </button>
-              </OverlayTrigger>
-              <OverlayTrigger
-                placement="top"
-                overlay={(<Tooltip>Excluir</Tooltip>)}
+                <i className="fa-regular fa-pen-to-square" />
+                {' '}
+                Editar
+              </button>
+              <button
+                type="button"
+                className={`btn btn-md btn-outline-danger m-1 ${fetchLoading && 'disabled'}`}
+                style={{ minWidth: '120px' }}
+                onClick={() => handleShow()}
               >
-                <button
-                  type="button"
-                  className={`btn btn-md btn-outline-danger m-1 ${fetchLoading && 'disabled'}`}
-                  style={{ minWidth: '45px' }}
-                  onClick={() => handleShow()}
-                >
-                  <i className="fa-solid fa-trash" />
-                  {' '}
-                  Excluir
-                </button>
-              </OverlayTrigger>
+                <i className="fa-solid fa-trash" />
+                {' '}
+                Excluir
+              </button>
             </div>
           </div>
         )}
