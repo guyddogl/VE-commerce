@@ -33,7 +33,7 @@ export default function NavBar() {
               <Link className={`nav-link ${checkNavLinkActive('/', location.pathname)}`} to="/">Home</Link>
             </li>
             <li className="nav-item mx-1">
-              <Link className={`nav-link ${checkNavLinkActive('/produto/add', location.pathname)}`} to="/produto/add">Adicionar Produto</Link>
+              <Link className={`nav-link ${checkNavLinkActive('/product/add', location.pathname)}`} to="/product/add">Adicionar Produto</Link>
             </li>
             <li className="nav-item mx-1">
               <Link className={`nav-link ${checkNavLinkActive('/relatorios', location.pathname)}`} to="/">Relatórios</Link>
