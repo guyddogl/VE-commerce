@@ -31,10 +31,7 @@ export default function ProductAdd() {
   const addNewProduct = async (event) => {
     event.preventDefault();
     setFetchLoading(true);
-    await addProduct(inputsForm).then((res) => {
-      showToast('success', 'Produto adicionado');
-      console.log(res);
-    });
+    await addProduct(inputsForm).then(showToast('success', 'Produto adicionado'));
     setFetchLoading(false);
   };
 
@@ -68,6 +65,8 @@ export default function ProductAdd() {
                   type="file"
                   onChange={handleFormInputs}
                   disabled={fetchLoading}
+                  accept="image/png, image/gif, image/jpeg"
+                  multiple
                   required
                 />
               </label>
