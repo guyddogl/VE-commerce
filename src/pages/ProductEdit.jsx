@@ -83,6 +83,7 @@ export default function ProductDetails() {
                       value={inputsForm.title}
                       onChange={handleFormInputs}
                       disabled={fetchLoading}
+                      required
                     />
                   </label>
                 </div>
@@ -99,6 +100,7 @@ export default function ProductDetails() {
                       rows="4"
                       onChange={handleFormInputs}
                       disabled={fetchLoading}
+                      required
                     />
                   </label>
                 </div>
@@ -113,6 +115,7 @@ export default function ProductDetails() {
                       value={inputsForm.category}
                       onChange={handleFormInputs}
                       disabled={fetchLoading}
+                      required
                     />
                   </label>
                   <label htmlFor="brand" className="form-label col-lg-6 my-2">
@@ -125,6 +128,7 @@ export default function ProductDetails() {
                       value={inputsForm.brand}
                       onChange={handleFormInputs}
                       disabled={fetchLoading}
+                      required
                     />
                   </label>
                 </div>
@@ -139,6 +143,7 @@ export default function ProductDetails() {
                       value={inputsForm.price}
                       onChange={handleFormInputs}
                       disabled={fetchLoading}
+                      required
                     />
                   </label>
                   <label htmlFor="discountPercentage" className="form-label col-lg-4 my-2">
@@ -151,6 +156,7 @@ export default function ProductDetails() {
                       value={inputsForm.discountPercentage}
                       onChange={handleFormInputs}
                       disabled={fetchLoading}
+                      required
                     />
                   </label>
                   <label htmlFor="stock" className="form-label col-lg-4 my-2">
@@ -163,6 +169,7 @@ export default function ProductDetails() {
                       value={inputsForm.stock}
                       onChange={handleFormInputs}
                       disabled={fetchLoading}
+                      required
                     />
                   </label>
                 </div>
