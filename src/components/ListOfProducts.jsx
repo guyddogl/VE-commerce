@@ -46,7 +46,7 @@ export default function ListOfProducts(props) {
   return (
     <>
       <ModalDeleteProduct show={show} product={deleteProduct} handleClose={handleClose} />
-      <div className="col-6 col-lg-4">
+      <div className="col-12 col-lg-4">
         <label htmlFor="nome" className="form-label" style={{ width: '100%' }}>
           <div className="input-group">
             <span className="input-group-text text-secondary">
