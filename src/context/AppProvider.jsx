@@ -15,9 +15,8 @@ export default function AppProvider({ children }) {
   useEffect(() => {
     setFetchLoading(true);
     const getProducts = async () => {
-      const products = await getAllProducts();
+      await getAllProducts().then((response) => setAllProducts(response.products));
       setFetchLoading(false);
-      setAllProducts(products.products);
     };
     getProducts();
   }, []);
@@ -29,6 +28,7 @@ export default function AppProvider({ children }) {
     setCurrentUser,
     allProducts,
     fetchLoading,
+    setFetchLoading,
   }));
 
   return (
