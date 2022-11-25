@@ -5,6 +5,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import NavBar from '../components/NavBar';
 import { getProductById } from '../services/fetchApi';
 import AppContext from '../context/AppContext';
+import ModalDeleteProduct from '../components/ModalDeleteProduct';
 
 export default function ProductDetails() {
   const { fetchLoading, setFetchLoading } = useContext(AppContext);
@@ -29,15 +30,18 @@ export default function ProductDetails() {
     return navigate(route);
   };
 
-  const deleteProduct = (productId) => {
-    console.log(productId);
-  };
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+
+  const handleClose = () => setShow(false);
 
   console.log(product);
 
   return (
     <>
       <NavBar />
+      <ModalDeleteProduct show={show} product={product} handleClose={handleClose} redirectToHome />
       <section className="container mt-4">
         {fetchLoading && Object.keys(product).length === 0 ? (
           <div className="spinner-border spinner-border-sm text-secondary ms-2" role="status">
@@ -100,7 +104,7 @@ export default function ProductDetails() {
               >
                 <button
                   type="button"
-                  className="btn btn-md btn-outline-secondary m-1"
+                  className={`btn btn-md btn-outline-secondary m-1 ${fetchLoading && 'disabled'}`}
                   style={{ minWidth: '45px' }}
                   onClick={() => editProduct(product.id)}
                 >
@@ -115,9 +119,9 @@ export default function ProductDetails() {
               >
                 <button
                   type="button"
-                  className="btn btn-md btn-outline-danger m-1"
+                  className={`btn btn-md btn-outline-danger m-1 ${fetchLoading && 'disabled'}`}
                   style={{ minWidth: '45px' }}
-                  onClick={() => deleteProduct(product)}
+                  onClick={() => handleShow()}
                 >
                   <i className="fa-solid fa-trash" />
                   {' '}
