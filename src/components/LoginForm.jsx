@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppContext from '../context/AppContext';
+import showToast from '../services/toastr';
 
 export default function LoginForm() {
   const INITIAL_STATE = {
@@ -37,6 +38,7 @@ export default function LoginForm() {
     setIsLoading(true);
     setCurrentUser(inputsLoginForm.username);
     setIsUserLoggedIn(true);
+    showToast('success', 'Login realizado com sucesso');
     navigate('/');
     setIsLoading(false);
   };
