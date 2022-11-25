@@ -56,9 +56,34 @@ const updateProduct = async (product) => {
   }
 };
 
+const addProduct = async (product) => {
+  try {
+    const URL = 'https://dummyjson.com/products/add';
+    const result = await fetch(URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: product.title,
+        description: product.description,
+        category: product.category,
+        brand: product.brand,
+        price: product.price,
+        discountPercentage: product.discountPercentage,
+        stock: product.stock,
+        images: [product.images],
+      }),
+    });
+    const data = await result.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
   deleteProductById,
   updateProduct,
+  addProduct,
 };
