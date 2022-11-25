@@ -95,7 +95,7 @@ export default function ModalDeleteProduct(props) {
 
 ModalDeleteProduct.propTypes = {
   show: PropTypes.bool.isRequired,
-  product: PropTypes.number.isRequired,
+  product: PropTypes.objectOf(PropTypes.any.isRequired).isRequired,
   handleClose: PropTypes.func.isRequired,
   redirectToHome: PropTypes.bool,
 };
