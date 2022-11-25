@@ -86,7 +86,7 @@ export default function ListOfProducts(props) {
                   {' '}
                   <br />
                   {' '}
-                  {`${product.description.substr(0, 100)}...`}
+                  {`${product.description.substr(0, 80)}...`}
                 </p>
               </div>
               <div className="col-2 col-lg-4 text-end">
