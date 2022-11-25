@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import { getProductById } from '../services/fetchApi';
+import { getProductById, updateProduct } from '../services/fetchApi';
+import showToast from '../services/toastr';
 import AppContext from '../context/AppContext';
 
 export default function ProductDetails() {
@@ -33,9 +34,11 @@ export default function ProductDetails() {
     getProduct();
   }, []);
 
-  const updateProduct = (event) => {
+  const sendProductUpdate = async (event) => {
     event.preventDefault();
-    console.log('produto atualizado');
+    setFetchLoading(true);
+    await updateProduct(inputsForm).then(showToast('success', 'Produto atualizado'));
+    setFetchLoading(false);
   };
 
   return (
@@ -68,7 +71,7 @@ export default function ProductDetails() {
               </div>
             </div>
             <div className="col-12 col-lg-6">
-              <form onSubmit={updateProduct}>
+              <form onSubmit={sendProductUpdate}>
                 <div className="row">
                   <label htmlFor="title" className="form-label col-lg-12 my-2">
                     <strong>Nome</strong>
@@ -113,7 +116,7 @@ export default function ProductDetails() {
                     />
                   </label>
                   <label htmlFor="brand" className="form-label col-lg-6 my-2">
-                    <strong>Categoria</strong>
+                    <strong>Marca</strong>
                     <input
                       name="brand"
                       type="text"
