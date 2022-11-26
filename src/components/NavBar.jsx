@@ -31,13 +31,13 @@ export default function NavBar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item mx-1">
+            <li className={`nav-item mx-1 ${!isUserLoggedIn && 'd-none'}`}>
               <Link className={`nav-link ${checkNavLinkActive('/', location.pathname)}`} to="/">
                 <i className="fa-solid fa-home me-2" />
                 Home
               </Link>
             </li>
-            <li className="nav-item mx-1">
+            <li className={`nav-item mx-1 ${!isUserLoggedIn && 'd-none'}`}>
               <Link className={`nav-link ${checkNavLinkActive('/product/add', location.pathname)}`} to="/product/add">
                 <i className="fa-solid fa-square-plus me-2" />
                 Adicionar Produto
@@ -47,6 +47,12 @@ export default function NavBar() {
               <Link className={`nav-link ${checkNavLinkActive('/store', location.pathname)}`} to="/store">
                 <i className="fa-solid fa-store me-2" />
                 Loja
+              </Link>
+            </li>
+            <li className={`nav-item mx-1 ${isUserLoggedIn && 'd-none'}`}>
+              <Link className={`nav-link ${checkNavLinkActive('/login', location.pathname)}`} to="/login">
+                <i className="fa-solid fa-gear me-2" />
+                Painel
               </Link>
             </li>
           </ul>
