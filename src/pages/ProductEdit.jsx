@@ -46,11 +46,16 @@ export default function ProductDetails() {
       <NavBar />
       <section className="container mt-4">
         {fetchLoading && Object.keys(product).length === 0 ? (
-          <div className="spinner-border spinner-border-sm text-secondary ms-2" role="status">
-            <span className="visually-hidden">Loading...</span>
+          <div className="row justify-content-center my-5">
+            <div className="spinner-border spinner-border-lg text-primary" />
           </div>
         ) : (
           <div className="row">
+            <div className="row">
+              <div className="col-12 text-center my-3">
+                <h3>Alterar informações do produto</h3>
+              </div>
+            </div>
             <div className="col-12 col-lg-6">
               <div className="row">
                 <div className="col-12">
@@ -165,7 +170,7 @@ export default function ProductDetails() {
                       name="stock"
                       type="number"
                       className="form-control"
-                      placeholder="Quantidade em estoque"
+                      placeholder="Quantidade"
                       value={inputsForm.stock}
                       onChange={handleFormInputs}
                       disabled={fetchLoading}
@@ -175,7 +180,7 @@ export default function ProductDetails() {
                 </div>
                 <div className="row my-3">
                   {fetchLoading ? (
-                    <div className="col-12">
+                    <div className="col-12 text-end">
                       <button
                         type="button"
                         className="btn btn-md btn-secondary m-1 disabled"
@@ -195,7 +200,7 @@ export default function ProductDetails() {
                     </div>
                   )
                     : (
-                      <div className="col-12">
+                      <div className="col-12 text-end">
                         <button
                           type="button"
                           className={`btn btn-md btn-secondary m-1 ${fetchLoading && 'disabled'}`}
