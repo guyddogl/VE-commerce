@@ -26,6 +26,7 @@ Para realizar um teste basta acessar o endereço https://ve-commerce-guyddogl.ve
 
 ## 📷 Preview
 ## Vídeo
+https://user-images.githubusercontent.com/47524908/204105707-fe754fb6-0c0b-40f2-b030-eb06b040f5cc.mp4
 
 ## Mobile
 ![mobile-1](https://user-images.githubusercontent.com/47524908/204100570-1eef6dc1-48cd-4ec0-8745-cf008892b2d7.jpg)
