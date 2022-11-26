@@ -4,7 +4,9 @@ import logo from '../assets/img/logo.png';
 import AppContext from '../context/AppContext';
 
 export default function NavBar() {
-  const { currentUser, setCurrentUser, setIsUserLoggedIn } = useContext(AppContext);
+  const {
+    currentUser, setCurrentUser, setIsUserLoggedIn, isUserLoggedIn,
+  } = useContext(AppContext);
 
   const location = useLocation();
 
@@ -48,18 +50,20 @@ export default function NavBar() {
               </Link>
             </li>
           </ul>
-          <span className="navbar-text">
-            Olá,
-            {' '}
-            <b>{currentUser}</b>
-          </span>
-          <button
-            type="button"
-            className="btn btn-sm btn-outline-danger ms-2"
-            onClick={logUserOut}
-          >
-            <i className="fa-solid fa-right-from-bracket" />
-          </button>
+          <div className={`${!isUserLoggedIn && 'd-none'}`}>
+            <span className="navbar-text">
+              Olá,
+              {' '}
+              <b>{currentUser}</b>
+            </span>
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-danger ms-2"
+              onClick={logUserOut}
+            >
+              <i className="fa-solid fa-right-from-bracket" />
+            </button>
+          </div>
         </div>
       </div>
     </nav>
