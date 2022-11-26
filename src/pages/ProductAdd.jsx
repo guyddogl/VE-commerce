@@ -158,25 +158,47 @@ export default function ProductAdd() {
               </label>
             </div>
             <div className="row my-3">
-              <div className="col-12">
-                <button
-                  type="button"
-                  className={`btn btn-md btn-secondary m-1 ${fetchLoading && 'disabled'}`}
-                  style={{ minWidth: '120px' }}
-                  onClick={() => navigate('/')}
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  className={`btn btn-md btn-outline-primary m-1 ${fetchLoading && 'disabled'}`}
-                  style={{ minWidth: '120px' }}
-                >
-                  <i className="fa-solid fa-save" />
-                  {' '}
-                  Salvar
-                </button>
-              </div>
+              {fetchLoading ? (
+                <div className="col-12">
+                  <button
+                    type="button"
+                    className="btn btn-md btn-secondary m-1 disabled"
+                    style={{ minWidth: '120px' }}
+                    onClick={() => navigate('/')}
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-md btn-outline-primary m-1 disabled"
+                    style={{ minWidth: '120px' }}
+                  >
+                    <span className="spinner-border spinner-border-sm me-2" />
+                    Salvando
+                  </button>
+                </div>
+              )
+                : (
+                  <div className="col-12">
+                    <button
+                      type="button"
+                      className={`btn btn-md btn-secondary m-1 ${fetchLoading && 'disabled'}`}
+                      style={{ minWidth: '120px' }}
+                      onClick={() => navigate('/')}
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="submit"
+                      className={`btn btn-md btn-outline-primary m-1 ${fetchLoading && 'disabled'}`}
+                      style={{ minWidth: '120px' }}
+                    >
+                      <i className="fa-solid fa-save" />
+                      {' '}
+                      Salvar
+                    </button>
+                  </div>
+                )}
             </div>
           </form>
         </div>
