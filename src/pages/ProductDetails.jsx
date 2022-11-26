@@ -39,11 +39,12 @@ export default function ProductDetails() {
       <NavBar />
       <ModalDeleteProduct show={show} product={product} handleClose={handleClose} redirectToHome />
       <section className="container mt-4">
-        {fetchLoading && Object.keys(product).length === 0 ? (
-          <div className="spinner-border spinner-border-sm text-secondary ms-2" role="status">
-            <span className="visually-hidden">Loading...</span>
+        {fetchLoading && (
+          <div className="row justify-content-center my-5">
+            <div className="spinner-border spinner-border-lg text-primary" />
           </div>
-        ) : (
+        )}
+        {!fetchLoading && Object.keys(product).length > 0 && (
           <div className="row">
             <div className="col-12 col-lg-6">
               <div className="row">
