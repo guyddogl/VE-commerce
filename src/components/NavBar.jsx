@@ -30,13 +30,22 @@ export default function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item mx-1">
-              <Link className={`nav-link ${checkNavLinkActive('/', location.pathname)}`} to="/">Home</Link>
+              <Link className={`nav-link ${checkNavLinkActive('/', location.pathname)}`} to="/">
+                <i className="fa-solid fa-home me-2" />
+                Home
+              </Link>
             </li>
             <li className="nav-item mx-1">
-              <Link className={`nav-link ${checkNavLinkActive('/product/add', location.pathname)}`} to="/product/add">Adicionar Produto</Link>
+              <Link className={`nav-link ${checkNavLinkActive('/product/add', location.pathname)}`} to="/product/add">
+                <i className="fa-solid fa-square-plus me-2" />
+                Adicionar Produto
+              </Link>
             </li>
             <li className="nav-item mx-1">
-              <Link className={`nav-link ${checkNavLinkActive('/relatorios', location.pathname)}`} to="/">Relatórios</Link>
+              <Link className={`nav-link ${checkNavLinkActive('/store', location.pathname)}`} to="/store">
+                <i className="fa-solid fa-store me-2" />
+                Loja
+              </Link>
             </li>
           </ul>
           <span className="navbar-text">
