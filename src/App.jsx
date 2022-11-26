@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 import ProductDetails from './pages/ProductDetails';
 import ProductEdit from './pages/ProductEdit';
 import ProductAdd from './pages/ProductAdd';
+import Store from './pages/Store';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/product/:id" element={<ProtectedRoutes component={ProductDetails} />} />
       <Route path="/product/add" element={<ProtectedRoutes component={ProductAdd} />} />
       <Route path="/product/edit/:id" element={<ProtectedRoutes component={ProductEdit} />} />
+      <Route path="/store" element={<Store />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
