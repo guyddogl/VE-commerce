@@ -68,9 +68,7 @@ export default function ListOfProducts(props) {
           Lista de Produtos
           {' '}
           {fetchLoading && (
-          <div className="spinner-border spinner-border-sm text-secondary ms-2" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
+          <div className="spinner-border spinner-border-sm text-primary ms-2" />
           )}
         </li>
         {lista.length >= 1 && lista.map((product, index) => (
