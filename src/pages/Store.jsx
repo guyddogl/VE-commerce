@@ -2,12 +2,11 @@ import React, { useContext } from 'react';
 import NavBar from '../components/NavBar';
 import ProductCard from '../components/ProductCard';
 import AppContext from '../context/AppContext';
+import BackToTop from '../components/BackToTop';
 
 export default function Store() {
   const { allProducts, fetchLoading } = useContext(AppContext);
 
-  console.log(allProducts);
-  // {allProducts.length > 0 && allProducts[0].title}
   return (
     <>
       <NavBar />
@@ -29,6 +28,7 @@ export default function Store() {
           </div>
         )}
       </section>
+      <BackToTop />
     </>
   );
 }

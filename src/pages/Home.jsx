@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import ListOfProducts from '../components/ListOfProducts';
+import BackToTop from '../components/BackToTop';
 
 export default function Home() {
   const [limitOfProducts, setLimitOfProducts] = useState(7);
@@ -35,6 +36,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <BackToTop />
     </>
   );
 }
