@@ -1,7 +1,6 @@
 {
   "name": "ve-commerce",
   "version": "0.1.0",
-  "homepage": "https://guyddogl.github.io/VE-commerce/",
   "private": true,
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.4.7",
